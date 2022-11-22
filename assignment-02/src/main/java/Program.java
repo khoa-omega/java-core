@@ -1,5 +1,3 @@
-package entity;
-
 public class Program {
     public static void main(String[] args) {
         Department departmentA = new Department();

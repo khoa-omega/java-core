@@ -1,5 +1,3 @@
-package entity;
-
 // Class dùng để làm gì?
 // 1. Chạy code Java
 // 2. Tạo ra một kiểu dữ liệu mới

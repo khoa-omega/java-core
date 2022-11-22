@@ -1,5 +1,3 @@
-package entity;
-
 public class Answer {
     int id;
     String content;

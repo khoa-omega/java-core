@@ -1,12 +1,10 @@
-package entity;
-
-public class TypeQuestion {
+public class Position {
     int id;
-    TypeName name;
+    PositionName name;
 
     @Override
     public String toString() {
-        return "TypeQuestion{" +
+        return "Position{" +
                 "id=" + id +
                 ", name=" + name +
                 '}';

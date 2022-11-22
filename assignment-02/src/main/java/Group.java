@@ -1,20 +1,17 @@
-package entity;
-
 import java.time.LocalDateTime;
 
-public class Question {
+public class Group {
     int id;
-    String content;
-    CategoryQuestion category;
-    TypeQuestion type;
+    String name;
     Account creator;
     LocalDateTime createdDate;
+    Account[] accounts;
 
     @Override
     public String toString() {
-        return "Question{" +
+        return "Group{" +
                 "id=" + id +
-                ", content='" + content + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
