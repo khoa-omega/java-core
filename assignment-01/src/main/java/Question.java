@@ -7,6 +7,7 @@ public class Question {
     TypeQuestion type;
     Account creator;
     LocalDateTime createdDate;
+    Answer[] answers;
 
     @Override
     public String toString() {

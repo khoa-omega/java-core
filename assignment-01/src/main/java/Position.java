@@ -1,6 +1,7 @@
 public class Position {
     int id;
     PositionName name;
+    Account[] accounts;
 
     @Override
     public String toString() {

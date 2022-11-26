@@ -26,8 +26,8 @@ public class Program {
         String name = "☁☁☁☁☁";
         System.out.println("name = " + name);
 
-        // Kiểu logic: boolean (1)
-        // Chỉ có 2 giá trị đúng hoặc sai: true or false
+        // Kiểu đúng sai: boolean (1)
+        // Chỉ có 2 giá trị đúng hoặc sai (true or false)
         boolean hasMoney = false;
         System.out.println("hasMoney = " + hasMoney);
 
@@ -35,25 +35,14 @@ public class Program {
         LocalDateTime now = LocalDateTime.now();
         System.out.println("now = " + now);
 
-        // Kiểu tập hợp: Enum
+        // Kiểu enum: Là tập hợp các hằng số định sẵn
         Gender gender = Gender.FEMALE;
         System.out.println("gender = " + gender);
 
-        // Kiểu mảng: Array
-        String[] fruits = {"Nho", "Táo", "Cam"};
+        // Kiểu array: Là một tập các giá trị có cùng kiểu dữ liệu
+        String[] fruits = {"Nho", "Cam", "Táo"};
         float[] scores = new float[] {8.5f, 7.5f, 5.0f};
         System.out.println("fruits = " + Arrays.toString(fruits));
         System.out.println("scores = " + Arrays.toString(scores));
-
-        // Testing System 01
-        Department departmentA = new Department();
-        departmentA.id = 1;
-        departmentA.name = "Giám đốc";
-        System.out.println("departmentA = " + departmentA);
-
-        Position positionA = new Position();
-        positionA.id = 1;
-        positionA.name = PositionName.DEV;
-        System.out.println("positionA = " + positionA);
     }
 }

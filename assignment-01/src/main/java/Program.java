@@ -1,16 +1,25 @@
 import java.time.LocalDateTime;
-import java.util.Arrays;
 
 public class Program {
     public static void main(String[] args) {
-        Department departmentA = new Department();
-        departmentA.id = 1;
-        departmentA.name = "Giám đốc";
-        System.out.println("departmentA = " + departmentA);
+        Department department = new Department();
+        department.id = 1;
+        department.name = "Giám đốc";
+        System.out.println("department = " + department);
 
-        Position positionA = new Position();
-        positionA.id = 1;
-        positionA.name = PositionName.DEV;
-        System.out.println("positionA = " + positionA);
+        Position position = new Position();
+        position.id = 1;
+        position.name = PositionName.PM;
+        System.out.println("position = " + position);
+
+        Account account = new Account();
+        account.id = 1;
+        account.email = "khoa.nv@gmail.com";
+        account.fullName = "Nguyễn Văn Khoa";
+        account.username = "khoa.nv";
+        account.department = department;
+        account.position = position;
+        account.createdDate = LocalDateTime.now();
+        System.out.println("account = " + account);
     }
 }

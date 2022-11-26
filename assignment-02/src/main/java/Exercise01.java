@@ -62,25 +62,21 @@ public class Exercise01 {
     public static void question06() {
         Account account = new Account();
         account.groups = new Group[]{new Group()};
-        if (account.groups == null) {
-            System.out.println("Nhân viên này chưa có group");
-        } else {
-            int length = account.groups.length;
-            switch (length) {
-                case 0:
-                    System.out.println("Nhân viên này chưa có group");
-                    break;
-                case 1:
-                case 2:
-                    System.out.println("Group của nhân viên này là Java Fresher, C# Fresher");
-                    break;
-                case 3:
-                    System.out.println("Nhân viên này là người quan trọng, tham gia nhiều group");
-                    break;
-                default:
-                    System.out.println("Nhân viên này là người hóng chuyện, tham gia tất cả các group");
-                    break;
-            }
+        int length = account.groups.length;
+        switch (length) {
+            case 0:
+                System.out.println("Nhân viên này chưa có group");
+                break;
+            case 1:
+            case 2:
+                System.out.println("Group của nhân viên này là Java Fresher, C# Fresher");
+                break;
+            case 3:
+                System.out.println("Nhân viên này là người quan trọng, tham gia nhiều group");
+                break;
+            default:
+                System.out.println("Nhân viên này là người hóng chuyện, tham gia tất cả các group");
+                break;
         }
     }
 
@@ -159,7 +155,10 @@ public class Exercise01 {
         Department[] departments = {department};
 
         for (int i = 0; i < departments.length; i++) {
-
+            System.out.println("Thông tin department thứ " + (i + 1) + " là:");
+            System.out.println("Id: " + departments[i].id);
+            System.out.println("Name: " + departments[i].name);
+            System.out.println();
         }
     }
 
@@ -171,7 +170,10 @@ public class Exercise01 {
         Department[] departments = {department};
 
         for (int i = 0; i < 2; i++) {
-
+            System.out.println("Thông tin department thứ " + (i + 1) + " là:");
+            System.out.println("Id: " + departments[i].id);
+            System.out.println("Name: " + departments[i].name);
+            System.out.println();
         }
     }
 

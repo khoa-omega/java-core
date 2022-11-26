@@ -6,6 +6,7 @@ public class Department {
     // 1. Thuộc tính: property
     int id;
     String name;
+    Account[] accounts;
 
     // 2. Phương thức: method
     @Override
