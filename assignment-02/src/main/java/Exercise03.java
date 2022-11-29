@@ -7,12 +7,12 @@ public class Exercise03 {
     public static void question01() {
         Exam exam = new Exam();
         exam.title = "Java core";
-        exam.createdDate = LocalDateTime.now();
+        exam.createdDate = LocalDateTime.of(2000, 10, 10, 10, 10, 10);
 
         System.out.println("exam.title = " + exam.title);
         DateTimeFormatter formatter = DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.FULL)
-                .withLocale(new Locale("vi"));
+                .withLocale(new Locale("vi", "VN"));
         System.out.println("exam.createdDate = " + exam.createdDate.format(formatter));
     }
 
@@ -40,7 +40,7 @@ public class Exercise03 {
     public static void question05() {
         Exam exam = new Exam();
         exam.createdDate = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-DD");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd");
         System.out.println("exam.createdDate = " + exam.createdDate.format(formatter));
     }
 
