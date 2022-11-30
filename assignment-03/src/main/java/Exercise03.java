@@ -1,20 +1,15 @@
 public class Exercise03 {
     public static void question01() {
         Integer salary = 5000;
-        float fSalary = salary.floatValue();
-        System.out.printf("salary = %.2f %n", fSalary);
+        System.out.printf("Salary = %.2f%n", salary.floatValue());
     }
 
     public static void question02() {
-        String s = "1234567";
-        int number = Integer.parseInt(s);
-        System.out.println("number = " + number);
+        int n = Integer.parseInt("1234567");
     }
 
     public static void question03() {
-        Integer number = new Integer("1234567");
-        int num = number;
-        System.out.println("num = " + num);
+        int n = Integer.valueOf("1234567");
     }
 
     public static void main(String[] args) {
