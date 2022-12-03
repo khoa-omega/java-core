@@ -7,12 +7,20 @@ public class Exercise01 {
         System.out.println("Salary 2 = " + (int) 10970.055f);
     }
 
-    private static int question02() {
-        return 10000 + new Random().nextInt(90000);
+    private static void question02() {
+        Random random = new Random();
+        // [0, 99999]
+        int n = random.nextInt(100000);
+        System.out.printf("=> n = %05d", n);
     }
 
     private static void question03() {
-        System.out.println("Hai số cuối = " + question02() % 100);
+        Random random = new Random();
+        // [0, 99999]
+        int n = random.nextInt(100000);
+        System.out.printf("=> n = %05d.%n", n);
+
+        System.out.printf("=> 2 số cuối = %d.%n", n % 100);
     }
 
     private static double question04() {

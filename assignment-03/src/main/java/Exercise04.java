@@ -1,5 +1,8 @@
 import com.sun.xml.internal.ws.util.StringUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.text.WordUtils;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Exercise04 {
@@ -11,7 +14,7 @@ public class Exercise04 {
         System.out.println("Nhập vào 1 xâu kí tự:");
         String s = scanner.nextLine();
 
-        int count = s.split("\\s+").length;
+        int count = s.trim().split("\\s+").length;
         System.out.printf("=> Có %d từ.%n", count);
     }
 
@@ -44,7 +47,7 @@ public class Exercise04 {
         String name = scanner.next();
 
         for (int i = 0; i < name.length(); i++) {
-            System.out.printf("Kí tự thứ %d là: %C%n", i + 1, name.charAt(i));
+            System.out.printf("Kí tự thứ %d là: %C.%n", i + 1, name.charAt(i));
         }
     }
 
@@ -66,14 +69,26 @@ public class Exercise04 {
         System.out.println("Nhập vào họ và tên:");
         String fullName = scanner.nextLine();
 
-        int firstWhiteSpaceIndex;
+        String[] words = fullName.trim().split("\\s+");
+        System.out.printf("Họ là: %s.%n", words[0]);
+        System.out.printf("Tên đệm là: %s.%n", String.join(" ", Arrays.copyOfRange(words, 1, words.length - 1)));
+        System.out.printf("Tên là: %s.%n", words[words.length - 1]);
+    }
+
+    private static void question07() {
+        System.out.println("Mời bạn nhập vào họ và tên.");
+
+        System.out.println("Nhập vào họ và tên:");
+        String fullName = scanner.nextLine();
+
+        System.out.printf("=> Chuẩn hóa: %s.%n", WordUtils.capitalizeFully(fullName.trim()));
     }
 
     private static void question08() {
         String[] groups = {"Database", "Java", "Java core", "Java advanced", "ReactJS"};
         for (String group : groups) {
             if (group.contains("Java")) {
-                System.out.println("=> group = " + group);
+                System.out.printf("=> group = %s.%n", group);
             }
         }
     }
@@ -82,7 +97,7 @@ public class Exercise04 {
         String[] groups = {"Database", "Java", "Java core", "Java advanced", "ReactJS"};
         for (String group : groups) {
             if (group.equals("Java")) {
-                System.out.println("=> group = " + group);
+                System.out.printf("=> group = %s.%n", group);
             }
         }
     }
@@ -95,13 +110,13 @@ public class Exercise04 {
     private static void question11(String s, char c) {
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
-            count += (c == s.charAt(i)) ? 1 : 0;
+            count += s.charAt(i) == c ? 1 : 0;
         }
         System.out.printf("=> %d lần xuất hiện.%n", count);
     }
 
     private static void question12(String s) {
-        System.out.printf("=> %s.%n", new StringBuilder(s).reverse());
+        System.out.printf("=> Chuỗi đảo ngược là: %s.%n", new StringBuilder(s).reverse());
     }
 
     private static void question13(String s) {
@@ -115,11 +130,17 @@ public class Exercise04 {
     }
 
     private static void question14(String s, char oldChar, char newChar) {
-        System.out.printf("=> %s.%n", s.replace(oldChar, newChar));
+        System.out.printf("=> Replaced String: %s.%n", s.replace(oldChar, newChar));
+    }
+
+    private static void question15(String s) {
+        String[] words = s.trim().split("\\s+");
+        ArrayUtils.reverse(words);
+        System.out.printf("=> Reverse String by word: %s.%n", String.join(" ", words));
     }
 
     private static void question16(String s, int n) {
-        if (s.length() %n != 0) {
+        if (s.length() % n != 0) {
             System.out.println("=> KO.");
         }
     }

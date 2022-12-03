@@ -11,7 +11,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>assignment-03</artifactId>
+    <artifactId>assignment-04</artifactId>
 
     <dependencies>
         <dependency>
@@ -19,12 +19,6 @@
             <artifactId>assignment-01</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-text</artifactId>
-            <version>1.10.0</version>
         </dependency>
     </dependencies>
 
