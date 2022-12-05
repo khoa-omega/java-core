@@ -81,7 +81,8 @@ public class Exercise04 {
         System.out.println("Nhập vào họ và tên:");
         String fullName = scanner.nextLine();
 
-        System.out.printf("=> Chuẩn hóa: %s.%n", WordUtils.capitalizeFully(fullName.trim()));
+        String s = WordUtils.capitalizeFully(fullName.trim().replaceAll("\\s+", " "));
+        System.out.printf("=> Chuẩn hóa: %s.%n", s);
     }
 
     private static void question08() {

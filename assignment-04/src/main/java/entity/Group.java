@@ -1,5 +1,6 @@
+package entity;
+
 import java.time.LocalDateTime;
-import java.util.Arrays;
 
 public class Group {
     int id;
@@ -22,7 +23,7 @@ public class Group {
         this.name = name;
         this.creator = creator;
         this.createdDate = createdDate;
-        // Convert String[] to Account[]
+        // Convert String[] to entity.Account[]
         this.accounts = new Account[usernames.length];
         for (int i = 0; i < usernames.length; i++) {
             Account account = new Account();
@@ -33,7 +34,7 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group{" +
+        return "entity.Group{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
