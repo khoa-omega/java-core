@@ -44,4 +44,14 @@ public class CanBo {
     public void setDiaChi(String diaChi) {
         this.diaChi = diaChi;
     }
+
+    @Override
+    public String toString() {
+        return "CanBo{" +
+                "hoTen='" + hoTen + '\'' +
+                ", tuoi=" + tuoi +
+                ", gioiTinh=" + gioiTinh +
+                ", diaChi='" + diaChi + '\'' +
+                '}';
+    }
 }
