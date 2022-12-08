@@ -45,7 +45,9 @@ public class QLTV {
     }
 
     public void hienThiDSTL() {
-        System.out.println("documents = " + documents);
+        for (Document document : documents) {
+            System.out.println("- document = " + document);
+        }
     }
 
     public void xoaTaiLieuTheoId() {
