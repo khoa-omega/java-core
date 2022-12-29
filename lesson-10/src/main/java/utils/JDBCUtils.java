@@ -1,18 +1,25 @@
 package utils;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class JDBCUtils {
     private static Connection connection;
 
-    public static Connection getConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/user_management?user=root&password=root";
-        if (connection == null || connection.isClosed()) {
-            connection = DriverManager.getConnection(url);
+    public static Connection getConnection() throws SQLException, IOException {
+        try (FileInputStream fis = new FileInputStream("lesson-10/src/main/resources/database.properties")) {
+            Properties properties = new Properties();
+            properties.load(fis);
+            String url = properties.getProperty("url");
+            if (connection == null || connection.isClosed()) {
+                connection = DriverManager.getConnection(url);
+            }
+            return connection;
         }
-        return connection;
     }
 
     public static void close() throws SQLException {
@@ -21,12 +28,16 @@ public class JDBCUtils {
         }
     }
 
-    public static void checkConnection() {
-        String url = "jdbc:mysql://localhost:3306/user_management?user=root&password=root";
-        try (Connection connection = DriverManager.getConnection(url)) {
-            System.out.println("Kết nối thành công.");
-        } catch (SQLException e) {
-            System.out.println("Kết nối thất bại");
+    public static void checkConnection() throws IOException {
+        try (FileInputStream fis = new FileInputStream("lesson-10/src/main/resources/database.properties")) {
+            Properties properties = new Properties();
+            properties.load(fis);
+            String url = properties.getProperty("url");
+            try (Connection connection = DriverManager.getConnection(url)) {
+                System.out.println("Kết nối thành công.");
+            } catch (SQLException e) {
+                System.out.println("Kết nối thất bại");
+            }
         }
     }
 }
