@@ -3,37 +3,56 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Exercise05 {
-    private static void question01() {
-        Department department = new Department("Giám đốc");
-        System.out.println("department = " + department);
+    void question01() {
+        Department department = new Department();
+        department.id = 1;
+        department.name = "Giám đốc";
+
+        System.out.println("Department = " + department);
     }
 
-    private static void question02() {
-        Department[] departments = {new Department("Giám đốc")};
+    void question02() {
+        Department departmentA = new Department();
+        departmentA.id = 1;
+        departmentA.name = "Giám đốc";
+        Department[] departments = {departmentA};
+
         for (Department department : departments) {
-            System.out.println("department = " + department);
+            System.out.println("Department = " + department);
         }
     }
 
-    private static void question03() {
-        Department department = new Department("Giám đốc");
-        System.out.println("department.hashCode() = " + department.hashCode());
+    void question03() {
+        Department department = new Department();
+        department.id = 1;
+        department.name = "Giám đốc";
+
+        System.out.println("Hash code = " + department.hashCode());
     }
 
-    private static void question04() {
-        Department department = new Department("Phòng A");
+    void question04() {
+        Department department = new Department();
+        department.id = 1;
+        department.name = "Giám đốc";
+
         boolean answer = department.name.equals("Phòng A");
-        System.out.println("answer = " + answer);
+        System.out.println("Answer = " + answer);
     }
 
-    private static void question05() {
-        Department departmentA = new Department("Phòng A");
-        Department departmentB = new Department("Phòng B");
+    void question05() {
+        Department departmentA = new Department();
+        departmentA.id = 1;
+        departmentA.name = "Giám đốc";
+
+        Department departmentB = new Department();
+        departmentB.id = 2;
+        departmentB.name = "Giám đốc";
+
         boolean answer = departmentA.equals(departmentB);
-        System.out.println("answer = " + answer);
+        System.out.println("Answer = " + answer);
     }
 
-    private static void question06() {
+    void question06() {
         List<String> departments = Arrays.asList(
                 "Sale",
                 "Waiting room",
@@ -43,11 +62,11 @@ public class Exercise05 {
         );
         departments.sort(Comparator.naturalOrder());
         for (String department : departments) {
-            System.out.println("department = " + department);
+            System.out.println("Department = " + department);
         }
     }
 
-    private static void question07() {
+    void question07() {
         List<String> departments = Arrays.asList(
                 "Sale",
                 "Waiting room",
@@ -61,17 +80,7 @@ public class Exercise05 {
             return lastWord1.compareToIgnoreCase(lastWord2);
         });
         for (String department : departments) {
-            System.out.println("department = " + department);
+            System.out.println("Department = " + department);
         }
-    }
-
-    public static void main(String[] args) {
-        question01();
-        question02();
-        question03();
-        question04();
-        question05();
-        question06();
-        question07();
     }
 }

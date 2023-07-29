@@ -1,54 +1,76 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Locale;
 
 public class Exercise03 {
-    public static void question01() {
+    void question01() {
         Exam exam = new Exam();
-        exam.title = "Java core";
-        exam.createdDate = LocalDateTime.of(2000, 10, 10, 10, 10, 10);
+        exam.code = "VTI001";
+        exam.title = "Đề thi kết thúc học phần Java Core";
+        exam.duration = 180;
+        exam.createdDate = LocalDate.now();
 
-        System.out.println("exam.title = " + exam.title);
+        Locale vn = new Locale("vi", "VN");
         DateTimeFormatter formatter = DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.FULL)
-                .withLocale(new Locale("vi", "VN"));
-        System.out.println("exam.createdDate = " + exam.createdDate.format(formatter));
+                .withLocale(vn);
+
+        System.out.println("Mã đề thi: " + exam.code);
+        System.out.println("Tên đề thi: " + exam.title);
+        System.out.println("Thời gian thi: " + exam.duration + " phút");
+        System.out.println("Ngày tạo đề thi: " + formatter.format(exam.createdDate));
     }
 
-    public static void question02() {
+    void question02() {
         Exam exam = new Exam();
-        exam.createdDate = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy - MM - dd - HH - mm - ss");
-        System.out.println("exam.createdDate = " + exam.createdDate.format(formatter));
+        exam.code = "VTI001";
+        exam.title = "Đề thi kết thúc học phần Java Core";
+        exam.duration = 180;
+        exam.createdDate = LocalDate.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter
+                .ofPattern("yyyy - MM - dd - HH - mm - ss");
+
+        System.out.println("Ngày tạo đề thi: " + formatter.format(exam.createdDate));
     }
 
-    public static void question03() {
+    void question03() {
         Exam exam = new Exam();
-        exam.createdDate = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
-        System.out.println("exam.createdDate = " + exam.createdDate.format(formatter));
+        exam.code = "VTI001";
+        exam.title = "Đề thi kết thúc học phần Java Core";
+        exam.duration = 180;
+        exam.createdDate = LocalDate.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter
+                .ofPattern("yyyy");
+
+        System.out.println("Ngày tạo đề thi: " + formatter.format(exam.createdDate));
     }
 
-    public static void question04() {
+    void question04() {
         Exam exam = new Exam();
-        exam.createdDate = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-yyyy");
-        System.out.println("exam.createdDate = " + exam.createdDate.format(formatter));
+        exam.code = "VTI001";
+        exam.title = "Đề thi kết thúc học phần Java Core";
+        exam.duration = 180;
+        exam.createdDate = LocalDate.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter
+                .ofPattern("MM - yyyy");
+
+        System.out.println("Ngày tạo đề thi: " + formatter.format(exam.createdDate));
     }
 
-    public static void question05() {
+    void question05() {
         Exam exam = new Exam();
-        exam.createdDate = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd");
-        System.out.println("exam.createdDate = " + exam.createdDate.format(formatter));
-    }
+        exam.code = "VTI001";
+        exam.title = "Đề thi kết thúc học phần Java Core";
+        exam.duration = 180;
+        exam.createdDate = LocalDate.now();
 
-    public static void main(String[] args) {
-        question01();
-        question02();
-        question03();
-        question04();
-        question05();
+        DateTimeFormatter formatter = DateTimeFormatter
+                .ofPattern("MM - dd");
+
+        System.out.println("Ngày tạo đề thi: " + formatter.format(exam.createdDate));
     }
 }

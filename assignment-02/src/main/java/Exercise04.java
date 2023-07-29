@@ -2,25 +2,26 @@ import java.time.LocalDate;
 import java.util.Random;
 
 public class Exercise04 {
-    public static void question01() {
+    void question01() {
         Random random = new Random();
-        System.out.println("number = " + random.nextInt());
+        int n = random.nextInt();
+        System.out.println("n = " + n);
     }
 
-    public static void question02() {
+    void question02() {
         Random random = new Random();
-        System.out.println("number = " + random.nextDouble());
+        double n = random.nextDouble();
+        System.out.println("n = " + n);
     }
 
-    public static void question03() {
+    void question03() {
         Random random = new Random();
-        String[] names = {"Cường", "Hùng", "Duy", "Nam"};
-        // [0, length - 1]
+        String[] names = {"Khoa", "Trang", "Duy", "Hùng"};
         int index = random.nextInt(names.length);
         System.out.printf("names[%d] = %s%n", index, names[index]);
     }
 
-    public static void question04() {
+    void question04() {
         Random random = new Random();
         LocalDate minDate = LocalDate.of(1995, 7, 24);
         LocalDate maxDate = LocalDate.of(1995, 12, 20);
@@ -28,10 +29,10 @@ public class Exercise04 {
         int maxDay = (int) maxDate.toEpochDay();
         int randomDay = minDay + random.nextInt(maxDay - minDay + 1);
         LocalDate randomDate = LocalDate.ofEpochDay(randomDay);
-        System.out.println("randomDate = " + randomDate);
+        System.out.println("Random date: " + randomDate);
     }
 
-    public static void question05() {
+    void question05() {
         Random random = new Random();
         LocalDate minDate = LocalDate.now().minusYears(1);
         LocalDate maxDate = LocalDate.now();
@@ -39,33 +40,24 @@ public class Exercise04 {
         int maxDay = (int) maxDate.toEpochDay();
         int randomDay = minDay + random.nextInt(maxDay - minDay + 1);
         LocalDate randomDate = LocalDate.ofEpochDay(randomDay);
-        System.out.println("randomDate = " + randomDate);
+        System.out.println("Random date: " + randomDate);
     }
 
-    public static void question06() {
+    void question06() {
         Random random = new Random();
         LocalDate maxDate = LocalDate.now();
         int minDay = 0;
         int maxDay = (int) maxDate.toEpochDay();
         int randomDay = minDay + random.nextInt(maxDay - minDay + 1);
         LocalDate randomDate = LocalDate.ofEpochDay(randomDay);
-        System.out.println("randomDate = " + randomDate);
+        System.out.println("Random date: " + randomDate);
     }
 
-    public static void question07() {
+    void question07() {
         Random random = new Random();
         int min = 100;
         int max = 999;
-        int number = min + random.nextInt(max - min + 1);
-        System.out.println("number = " + number);
-    }
-
-    public static void main(String[] args) {
-        question01();
-        question02();
-        question03();
-        question05();
-        question06();
-        question07();
+        int n = min + random.nextInt(max - min + 1);
+        System.out.println("n = " + n);
     }
 }

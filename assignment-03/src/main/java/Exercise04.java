@@ -2,13 +2,11 @@ import com.sun.xml.internal.ws.util.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.text.WordUtils;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Exercise04 {
-    private static final Scanner scanner = new Scanner(System.in);
-
-    private static void question01() {
+    void question01() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào 1 xâu kí tự.");
 
         System.out.println("Nhập vào 1 xâu kí tự:");
@@ -18,7 +16,8 @@ public class Exercise04 {
         System.out.printf("=> Có %d từ.%n", count);
     }
 
-    private static void question02() {
+    void question02() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào 2 xâu kí tự.");
 
         System.out.println("Nhập vào xâu kí tự thứ 1:");
@@ -31,7 +30,8 @@ public class Exercise04 {
         System.out.printf("=> %s.%n", s);
     }
 
-    private static void question03() {
+    void question03() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào tên.");
 
         System.out.println("Nhập vào tên:");
@@ -40,75 +40,88 @@ public class Exercise04 {
         System.out.printf("=> %s.", StringUtils.capitalize(name));
     }
 
-    private static void question04() {
+    void question04() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào tên.");
 
         System.out.println("Nhập vào tên:");
         String name = scanner.next();
 
-        for (int i = 0; i < name.length(); i++) {
-            System.out.printf("Kí tự thứ %d là: %C.%n", i + 1, name.charAt(i));
+        int length = name.length();
+        for (int i = 0; i < length; i++) {
+            int n = i + 1;
+            char c = name.charAt(i);
+            System.out.printf("Kí tự thứ %d là: %C.%n", n, c);
         }
     }
 
-    private static void question05() {
+    void question05() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào họ và tên.");
 
         System.out.println("Nhập vào họ:");
-        String lastName = scanner.nextLine();
+        String firstName = scanner.nextLine();
 
         System.out.println("Nhập vào tên:");
-        String firstName = scanner.next();
+        String lastName = scanner.next();
 
-        System.out.printf("=> %s %s.", lastName, firstName);
+        System.out.printf("=> %s %s.", firstName, lastName);
     }
 
-    private static void question06() {
+    void question06() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào họ và tên.");
 
         System.out.println("Nhập vào họ và tên:");
-        String fullName = scanner.nextLine();
+        String fullName = scanner.nextLine()
+                .trim().replaceAll("\\s+", " ");
 
-        String[] words = fullName.trim().split("\\s+");
-        System.out.printf("Họ là: %s.%n", words[0]);
-        System.out.printf("Tên đệm là: %s.%n", String.join(" ", Arrays.copyOfRange(words, 1, words.length - 1)));
-        System.out.printf("Tên là: %s.%n", words[words.length - 1]);
+        int firstIndexOfSpace = fullName.indexOf(' ');
+        int lastIndexOfSpace = fullName.lastIndexOf(' ');
+        String firstName = fullName.substring(0, firstIndexOfSpace);
+        String middleName = fullName.substring(firstIndexOfSpace + 1, lastIndexOfSpace);
+        String lastName = fullName.substring(lastIndexOfSpace + 1);
+        System.out.printf("Họ là: %s.%n", firstName);
+        System.out.printf("Tên đệm là: %s.%n", middleName);
+        System.out.printf("Tên là: %s.%n", lastName);
     }
 
-    private static void question07() {
+    void question07() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào họ và tên.");
 
         System.out.println("Nhập vào họ và tên:");
-        String fullName = scanner.nextLine();
+        String fullName = scanner.nextLine()
+                .trim().replaceAll("\\s+", " ");
 
-        String s = WordUtils.capitalizeFully(fullName.trim().replaceAll("\\s+", " "));
+        String s = WordUtils.capitalizeFully(fullName);
         System.out.printf("=> Chuẩn hóa: %s.%n", s);
     }
 
-    private static void question08() {
-        String[] groups = {"Database", "Java", "Java core", "Java advanced", "ReactJS"};
+    void question08() {
+        String[] groups = {"Database", "Java", "Java Core", "Java Advanced", "ReactJS"};
         for (String group : groups) {
             if (group.contains("Java")) {
-                System.out.printf("=> group = %s.%n", group);
+                System.out.printf("=> Group = %s.%n", group);
             }
         }
     }
 
-    private static void question09() {
-        String[] groups = {"Database", "Java", "Java core", "Java advanced", "ReactJS"};
+    void question09() {
+        String[] groups = {"Database", "Java", "Java Core", "Java Advanced", "ReactJS"};
         for (String group : groups) {
             if (group.equals("Java")) {
-                System.out.printf("=> group = %s.%n", group);
+                System.out.printf("=> Group = %s.%n", group);
             }
         }
     }
 
-    private static void question10(String s1, String s2) {
+    void question10(String s1, String s2) {
         String s = new StringBuilder(s2).reverse().toString();
         System.out.printf("=> %s.%n", s.equals(s1) ? "OK" : "KO");
     }
 
-    private static void question11(String s, char c) {
+    void question11(String s, char c) {
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
             count += s.charAt(i) == c ? 1 : 0;
@@ -116,12 +129,14 @@ public class Exercise04 {
         System.out.printf("=> %d lần xuất hiện.%n", count);
     }
 
-    private static void question12(String s) {
-        System.out.printf("=> Chuỗi đảo ngược là: %s.%n", new StringBuilder(s).reverse());
+    void question12(String s) {
+        String reversed = new StringBuilder(s).reverse().toString();
+        System.out.printf("=> Chuỗi đảo ngược là: %s.%n", reversed);
     }
 
-    private static void question13(String s) {
-        for (int i = 0; i < s.length(); i++) {
+    void question13(String s) {
+        int length = s.length();
+        for (int i = 0; i < length; i++) {
             if (Character.isDigit(s.charAt(i))) {
                 System.out.println("=> FALSE.");
                 return;
@@ -130,25 +145,21 @@ public class Exercise04 {
         System.out.println("=> TRUE.");
     }
 
-    private static void question14(String s, char oldChar, char newChar) {
-        System.out.printf("=> Replaced String: %s.%n", s.replace(oldChar, newChar));
+    void question14(String s, char oldChar, char newChar) {
+        String replaced = s.replace(oldChar, newChar);
+        System.out.printf("=> Replaced String: %s.%n", replaced);
     }
 
-    private static void question15(String s) {
+    void question15(String s) {
         String[] words = s.trim().split("\\s+");
         ArrayUtils.reverse(words);
-        System.out.printf("=> Reverse String by word: %s.%n", String.join(" ", words));
+        String reversed = String.join(" ", words);
+        System.out.printf("=> Reverse String by word: %s.%n", reversed);
     }
 
-    private static void question16(String s, int n) {
+    void question16(String s, int n) {
         if (s.length() % n != 0) {
             System.out.println("=> KO.");
         }
-    }
-
-    public static void main(String[] args) {
-
-
-        scanner.close();
     }
 }

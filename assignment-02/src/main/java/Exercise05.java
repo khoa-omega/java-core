@@ -1,11 +1,9 @@
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Exercise05 {
-    private static final Scanner scanner = new Scanner(System.in);
-
-    private static void question01() {
+    void question01() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào 3 số nguyên.");
 
         System.out.println("Nhập vào số thứ 1:");
@@ -17,10 +15,11 @@ public class Exercise05 {
         System.out.println("Nhập vào số thứ 3:");
         int c = scanner.nextInt();
 
-        System.out.printf("Bạn vừa nhập vào 3 số nguyên là: %d, %d và %d.%n", a, b, c);
+        System.out.printf("Bạn vừa nhập vào 3 số nguyên: %d, %d và %d.%n", a, b, c);
     }
 
-    private static void question02() {
+    void question02() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào 2 số thực.");
 
         System.out.println("Nhập vào số thứ 1:");
@@ -29,28 +28,31 @@ public class Exercise05 {
         System.out.println("Nhập vào số thứ 2:");
         double b = scanner.nextDouble();
 
-        System.out.printf("Bạn vừa nhập vào 2 số thực là: %f và %f.%n", a, b);
+        System.out.printf("Bạn vừa nhập vào 2 số thực: %f và %f.%n", a, b);
     }
 
-    private static void question03() {
+    void question03() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào họ và tên.");
 
         System.out.println("Nhập vào họ và tên:");
         String fullName = scanner.nextLine();
 
-        System.out.printf("Bạn vừa nhập vào họ và tên là: %s.%n", fullName);
+        System.out.printf("Bạn vừa nhập vào họ và tên: %s.%n", fullName);
     }
 
-    private static void question04() {
+    void question04() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào ngày sinh.");
 
         System.out.println("Nhập vào ngày sinh (yyyy-MM-dd):");
         LocalDate birthdate = LocalDate.parse(scanner.next());
 
-        System.out.printf("Bạn vừa nhập vào ngày sinh là: %s.%n", birthdate);
+        System.out.printf("Bạn vừa nhập vào ngày sinh: %s.%n", birthdate);
     }
 
-    private static void question05() {
+    void question05() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào thông tin account.");
         Account account = new Account();
 
@@ -79,12 +81,14 @@ public class Exercise05 {
 
         System.out.println("Bạn vừa nhập vào account có thông tin như sau:");
         System.out.printf(
-                "%d - %s - %s - %s - %s.%n",
-                account.id, account.email, account.username, account.fullName, account.position.name
+                "Account[%d, %s, %s, %s, %s].%n",
+                account.id, account.email, account.username,
+                account.fullName, account.position.name
         );
     }
 
-    private static void question06() {
+    void question06() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào thông tin department.");
         Department department = new Department();
 
@@ -96,17 +100,18 @@ public class Exercise05 {
         department.name = scanner.nextLine();
 
         System.out.println("Bạn vừa nhập vào department có thông tin như sau:");
-        System.out.printf("%d - %s.%n", department.id, department.name);
+        System.out.printf("Department[%d, %s].%n", department.id, department.name);
     }
 
-    private static void question07() {
+    void question07() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Mời bạn nhập vào 1 số chẵn.");
 
         while (true) {
             System.out.println("Nhập vào 1 số chẵn:");
             int n = scanner.nextInt();
             if (n % 2 == 0) {
-                System.out.printf("Bạn vừa nhập vào 1 số chẵn là: %d.%n", n);
+                System.out.printf("Bạn vừa nhập vào số chẵn: %d.%n", n);
                 break;
             } else {
                 System.out.printf("Số %d không phải là số chẵn.%n", n);
@@ -115,13 +120,13 @@ public class Exercise05 {
         }
     }
 
-    private static void question08() {
+    void question08() {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("1. Tạo account");
             System.out.println("2. Tạo department");
             System.out.println("3. Thoát chương trình");
             System.out.println("Mời bạn chọn chức năng:");
-
             int menu = scanner.nextInt();
             switch (menu) {
                 case 1:
@@ -134,61 +139,61 @@ public class Exercise05 {
                     return;
                 default:
                     System.out.println("Mời bạn nhập lại.");
-                    break;
             }
         }
     }
 
-    private static void question09() {
+    void question09() {
+        Scanner scanner = new Scanner(System.in);
+
         Group groupA = new Group();
         groupA.id = 1;
         groupA.name = "Database";
-        groupA.createdDate = LocalDateTime.now();
+        groupA.createdDate = LocalDate.now();
 
         Group groupB = new Group();
         groupB.id = 2;
-        groupB.name = "Java ore";
-        groupB.createdDate = LocalDateTime.now();
+        groupB.name = "Java Core";
+        groupB.createdDate = LocalDate.now();
 
         Group groupC = new Group();
         groupC.id = 3;
         groupC.name = "ReactJS";
-        groupC.createdDate = LocalDateTime.now();
+        groupC.createdDate = LocalDate.now();
 
         Account accountA = new Account();
         accountA.id = 1;
         accountA.email = "khoa.nv@gmail.com";
         accountA.username = "khoa.nv";
         accountA.fullName = "Nguyễn Văn Khoa";
-        accountA.createdDate = LocalDateTime.now();
+        accountA.createdDate = LocalDate.now();
 
         Account accountB = new Account();
         accountB.id = 2;
         accountB.email = "cuong.nq@gmail.com";
         accountB.username = "cuong.nq";
         accountB.fullName = "Nguyễn Quốc Cường";
-        accountB.createdDate = LocalDateTime.now();
+        accountB.createdDate = LocalDate.now();
 
         Account accountC = new Account();
         accountC.id = 3;
         accountC.email = "trang.nnm@gmail.com";
         accountC.username = "trang.nnm";
         accountC.fullName = "Nguyễn Ngọc Minh Trang";
-        accountC.createdDate = LocalDateTime.now();
+        accountC.createdDate = LocalDate.now();
 
         Group[] groups = {groupA, groupB, groupC};
         Account[] accounts = {accountA, accountB, accountC};
 
-        System.out.println("Hiển thị danh sách accounts:");
+        System.out.println("Danh sách account:");
         for (Account account : accounts) {
-            System.out.println("- account: " + account.username);
+            System.out.println("- username: " + account.username);
         }
 
         System.out.println("Nhập vào username:");
-        String username = scanner.next();
-        scanner.nextLine();
+        String username = scanner.nextLine();
 
-        System.out.println("Hiển thị danh sách groups:");
+        System.out.println("Danh sách group:");
         for (Group group : groups) {
             System.out.println("- group: " + group.name);
         }
@@ -202,21 +207,24 @@ public class Exercise05 {
                     if (name.equals(group.name)) {
                         account.groups = new Group[]{group};
                         group.accounts = new Account[]{account};
-                        System.out.printf("Bạn vừa thêm account %s vào group %s.%n", username, name);
+                        System.out.printf(
+                                "Bạn vừa thêm account %s vào group %s.%n",
+                                username, name
+                        );
                     }
                 }
             }
         }
     }
 
-    private static void question10() {
+    void question10() {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("1. Tạo account");
             System.out.println("2. Tạo department");
             System.out.println("3. Thêm account vào group");
             System.out.println("4. Thoát chương trình");
             System.out.println("Mời bạn chọn chức năng:");
-
             int menu = scanner.nextInt();
             switch (menu) {
                 case 1:
@@ -232,23 +240,7 @@ public class Exercise05 {
                     return;
                 default:
                     System.out.println("Mời bạn nhập lại.");
-                    break;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        question01();
-        question02();
-        question03();
-        question04();
-        question05();
-        question06();
-        question07();
-        question08();
-        question09();
-        question10();
-
-        scanner.close();
     }
 }

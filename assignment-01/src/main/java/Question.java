@@ -1,4 +1,4 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Question {
     int id;
@@ -6,14 +6,6 @@ public class Question {
     CategoryQuestion category;
     TypeQuestion type;
     Account creator;
-    LocalDateTime createdDate;
+    LocalDate createdDate;
     Answer[] answers;
-
-    @Override
-    public String toString() {
-        return "Question{" +
-                "id=" + id +
-                ", content='" + content + '\'' +
-                '}';
-    }
 }
