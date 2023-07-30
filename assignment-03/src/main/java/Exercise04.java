@@ -1,7 +1,3 @@
-import com.sun.xml.internal.ws.util.StringUtils;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.text.WordUtils;
-
 import java.util.Scanner;
 
 public class Exercise04 {
@@ -37,7 +33,10 @@ public class Exercise04 {
         System.out.println("Nhập vào tên:");
         String name = scanner.next();
 
-        System.out.printf("=> %s.", StringUtils.capitalize(name));
+        String capitalizedName = name.substring(0, 1).toUpperCase()
+                + name.substring(1);
+
+        System.out.printf("=> %s.", capitalizedName);
     }
 
     void question04() {
@@ -91,11 +90,18 @@ public class Exercise04 {
         System.out.println("Mời bạn nhập vào họ và tên.");
 
         System.out.println("Nhập vào họ và tên:");
-        String fullName = scanner.nextLine()
-                .trim().replaceAll("\\s+", " ");
+        String fullName = scanner.nextLine();
 
-        String s = WordUtils.capitalizeFully(fullName);
-        System.out.printf("=> Chuẩn hóa: %s.%n", s);
+        String a = fullName.trim();
+        System.out.println("=> Câu a: " + a);
+
+        String[] words = a.split("\\s+");
+        String b = "";
+        for (String word : words) {
+            b += word.substring(0, 1).toUpperCase()
+                    + word.substring(1) + " ";
+        }
+        System.out.println("=> Câu b: " + b);
     }
 
     void question08() {
@@ -117,8 +123,21 @@ public class Exercise04 {
     }
 
     void question10(String s1, String s2) {
-        String s = new StringBuilder(s2).reverse().toString();
-        System.out.printf("=> %s.%n", s.equals(s1) ? "OK" : "KO");
+        int length1 = s1.length();
+        int length2 = s2.length();
+        if (length1 != length2) {
+            System.out.println("KO");
+            return;
+        }
+        for (int i = 0; i < length1; i++) {
+            char c1 = s1.charAt(i);
+            char c2 = s2.charAt(length1 - 1 - i);
+            if (c1 != c2) {
+                System.out.println("KO");
+                return;
+            }
+        }
+        System.out.println("OK");
     }
 
     void question11(String s, char c) {
@@ -130,14 +149,19 @@ public class Exercise04 {
     }
 
     void question12(String s) {
-        String reversed = new StringBuilder(s).reverse().toString();
+        int length = s.length();
+        String reversed = "";
+        for (int i = length - 1; i >= 0; i--) {
+            reversed += s.charAt(i);
+        }
         System.out.printf("=> Chuỗi đảo ngược là: %s.%n", reversed);
     }
 
     void question13(String s) {
         int length = s.length();
         for (int i = 0; i < length; i++) {
-            if (Character.isDigit(s.charAt(i))) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) {
                 System.out.println("=> FALSE.");
                 return;
             }
@@ -150,11 +174,13 @@ public class Exercise04 {
         System.out.printf("=> Replaced String: %s.%n", replaced);
     }
 
-    void question15(String s) {
+    static void question15(String s) {
         String[] words = s.trim().split("\\s+");
-        ArrayUtils.reverse(words);
-        String reversed = String.join(" ", words);
-        System.out.printf("=> Reverse String by word: %s.%n", reversed);
+        String reversed = "";
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversed += words[i] + " ";
+        }
+        System.out.println("=> Reverse String by word: " + reversed);
     }
 
     void question16(String s, int n) {

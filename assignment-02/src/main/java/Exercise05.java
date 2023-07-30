@@ -75,8 +75,16 @@ public class Exercise05 {
         System.out.println("3. Scrum Master");
         System.out.println("4. Project Manager");
         Position position = new Position();
-        int ordinal = scanner.nextInt();
-        position.name = PositionName.values()[ordinal - 1];
+        int menu = scanner.nextInt();
+        if (menu == 1) {
+            position.name = PositionName.DEV;
+        } else if (menu == 2) {
+            position.name = PositionName.TEST;
+        } else if (menu == 3) {
+            position.name = PositionName.SCRUM_MASTER;
+        } else {
+            position.name = PositionName.PM;
+        }
         account.position = position;
 
         System.out.println("Bạn vừa nhập vào account có thông tin như sau:");
@@ -139,6 +147,7 @@ public class Exercise05 {
                     return;
                 default:
                     System.out.println("Mời bạn nhập lại.");
+                    break;
             }
         }
     }
@@ -158,7 +167,7 @@ public class Exercise05 {
 
         Group groupC = new Group();
         groupC.id = 3;
-        groupC.name = "ReactJS";
+        groupC.name = "Frontend Basic";
         groupC.createdDate = LocalDate.now();
 
         Account accountA = new Account();
@@ -201,20 +210,8 @@ public class Exercise05 {
         System.out.println("Nhập vào group name:");
         String name = scanner.nextLine();
 
-        for (Account account : accounts) {
-            if (username.equals(account.username)) {
-                for (Group group : groups) {
-                    if (name.equals(group.name)) {
-                        account.groups = new Group[]{group};
-                        group.accounts = new Account[]{account};
-                        System.out.printf(
-                                "Bạn vừa thêm account %s vào group %s.%n",
-                                username, name
-                        );
-                    }
-                }
-            }
-        }
+        System.out.printf("Bạn vừa thêm account \"%s\" vào group \"%s\".%n",
+                username, name);
     }
 
     void question10() {
@@ -226,20 +223,27 @@ public class Exercise05 {
             System.out.println("4. Thoát chương trình");
             System.out.println("Mời bạn chọn chức năng:");
             int menu = scanner.nextInt();
-            switch (menu) {
-                case 1:
-                    question05();
+            if (menu == 1) {
+                question05();
+            } else if (menu == 2) {
+                question06();
+            } else if (menu == 3) {
+                question09();
+            } else if (menu == 4) {
+                return;
+            } else {
+                System.out.println("Mời bạn nhập lại.");
+                continue;
+            }
+            while (true) {
+                System.out.println("Bạn có muốn thực hiện chức năng khác không?");
+                String answer = scanner.next();
+                if (answer.equals("Có")) {
                     break;
-                case 2:
-                    question06();
-                    break;
-                case 3:
-                    question09();
-                    break;
-                case 4:
+                }
+                if (answer.equals("Không")) {
                     return;
-                default:
-                    System.out.println("Mời bạn nhập lại.");
+                }
             }
         }
     }

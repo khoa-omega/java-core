@@ -72,6 +72,7 @@ public class Exercise01 {
                 break;
             default:
                 System.out.println("Nhóm có nhiều thành viên");
+                break;
         }
     }
 
@@ -93,6 +94,7 @@ public class Exercise01 {
                 break;
             default:
                 System.out.println("Nhân viên này là người hóng chuyện, tham gia tất cả các group");
+                break;
         }
     }
 
@@ -109,6 +111,7 @@ public class Exercise01 {
                 break;
             default:
                 System.out.println("Người này không phải là developer");
+                break;
         }
     }
 

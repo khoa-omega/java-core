@@ -3,20 +3,24 @@ import java.util.Scanner;
 
 public class Exercise01 {
     void question01() {
-        System.out.println("Salary 1 = " + (int) 5240.5f);
-        System.out.println("Salary 2 = " + (int) 10970.055f);
+        float salary1;
+        float salary2;
+        salary1 = 5240.5f;
+        salary2 = 10970.055f;
+        int roundedSalary1 = (int) salary1;
+        int roundedSalary2 = (int) salary2;
+        System.out.println("Rounded salary 1 = " + roundedSalary1);
+        System.out.println("Rounded salary 2 = " + roundedSalary2);
     }
 
     void question02() {
         Random random = new Random();
-        // [0, 99999]
         int n = random.nextInt(100000);
         System.out.printf("=> n = %05d.%n", n);
     }
 
     void question03() {
         Random random = new Random();
-        // [0, 99999]
         int n = random.nextInt(100000);
         System.out.printf("=> n = %05d.%n", n);
         System.out.printf("=> 2 số cuối = %d.%n", n % 100);
